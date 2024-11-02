@@ -16,7 +16,7 @@ Main features:
 
 - There is **No token**, because it's not needed. Transactions between traders are secured by non-custodial multisignature transactions on the Monero network.
 
-- There are no fees on Haveno Aloha, just volunteers, we operate purely on donations. You're able to do that on our website [https://www.haveno-aloha.com](https://www.haveno-aloha.com)
+- There are also **NO FEES** on Haveno Aloha, just volunteers, we operate purely on donations. You're able to do that on our website [https://www.haveno-aloha.com](https://www.haveno-aloha.com)
 
 ## Installing Haveno Aloha
 
