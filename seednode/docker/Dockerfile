@@ -18,7 +18,7 @@ USER haveno
 
 WORKDIR /home/haveno
 
-RUN set -ex && git clone https://github.com/haveno-dex/haveno.git && \
+RUN set -ex && git clone https://github.com/The-Aloha-Project/haveno-aloha.git && \
     cd haveno && \
     make skip-tests
 
@@ -26,4 +26,4 @@ WORKDIR /home/haveno/haveno
 
 ENTRYPOINT [ "./haveno-seednode" ]
 
-CMD ["--baseCurrencyNetwork=XMR_STAGENET", "--useLocalhostForP2P=false", "--useDevPrivilegeKeys=false", "--nodePort=2002", "--appName=haveno-XMR_STAGENET_Seed_2002" ]
+CMD ["--baseCurrencyNetwork=XMR_MAINNET", "--useLocalhostForP2P=false", "--useDevPrivilegeKeys=false", "--nodePort=2002", "--appName=haveno-XMR_MAINNET_Seed_2002" ]

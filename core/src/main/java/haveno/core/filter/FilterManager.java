@@ -116,9 +116,16 @@ public class FilterManager {
 
         publicKeys = useDevPrivilegeKeys ?
                 Collections.singletonList(DevEnv.DEV_PRIVILEGE_PUB_KEY) :
-                List.of("0358d47858acdc41910325fce266571540681ef83a0d6fedce312bef9810793a27",
-                        "029340c3e7d4bb0f9e651b5f590b434fecb6175aeaa57145c7804ff05d210e534f",
-                        "034dc7530bf66ffd9580aa98031ea9a18ac2d269f7c56c0e71eca06105b9ed69f9");
+                List.of("02d247b0ac0910ef0d578a490628fb13f38cb78b4fa52905f911b58fc726576bae",
+                        "0385ffe2f04a8e25bbae8c0bfb56d231c95f242cc33e310fe0fdec174c60421a7c",
+                        "033ac7c5320129b88febeaec86eb1492f036104afe6d0e660730a534a2e5594b3b",
+                        "03e0236f761955386e1dbcf60dc5956f808051e5ca6fae4b257a8f3acca8af7512",
+                        "021a33309670fb00d11cb5e2bab97b2068f200feb5fdce1fb6eb0d0730ff730c53",
+                        "03f072d10171eca09aa95de0102c1cf95026acc39653e5444f1e34894d63e19ea1",
+                        "022647b30ce9dc8250e7f12b8c42a5648b7dbaaf5af5b9655ebe17a29bf76b3114",
+                        "02b13bd04ec109f777e26a5608df924cb5afaaaf7ea87c414481b7a8d47893f98e",
+                        "03b1cba37e2c63ac836539cb758473e537bc0bca0e5e4a2fc97a958fbf0bcd8e07"
+                    );
 
         banFilter.setBannedNodePredicate(this::isNodeAddressBannedFromNetwork);
     }

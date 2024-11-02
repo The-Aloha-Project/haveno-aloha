@@ -80,15 +80,15 @@ import org.bitcoinj.core.Coin;
 public class HavenoUtils {
 
     // configure release date
-    private static final String RELEASE_DATE = "25-05-2024 00:00:00"; // optionally set to release date of the network in format dd-mm-yyyy to impose temporary limits, etc. e.g. "25-05-2024 00:00:00"
+    private static final String RELEASE_DATE = "03-11-2024 00:00:00"; // optionally set to release date of the network in format dd-mm-yyyy to impose temporary limits, etc. e.g. "25-05-2024 00:00:00"
     public static final int RELEASE_LIMIT_DAYS = 60; // number of days to limit sell offers to max buy limit for new accounts
     public static final int WARN_ON_OFFER_EXCEEDS_UNSIGNED_BUY_LIMIT_DAYS = 182; // number of days to warn if sell offer exceeds unsigned buy limit
     public static final int ARBITRATOR_ACK_TIMEOUT_SECONDS = 60;
 
     // configure fees
-    public static final boolean ARBITRATOR_ASSIGNS_TRADE_FEE_ADDRESS = true;
-    public static final double MAKER_FEE_PCT = 0.0015; // 0.15%
-    public static final double TAKER_FEE_PCT = 0.0075; // 0.75%
+    public static final boolean ARBITRATOR_ASSIGNS_TRADE_FEE_ADDRESS = false;
+    public static final double MAKER_FEE_PCT = 0.0000; // 0.15%
+    public static final double TAKER_FEE_PCT = 0.0000; // 0.75%
     public static final double PENALTY_FEE_PCT = 0.02; // 2%
 
     // other configuration
@@ -422,7 +422,7 @@ public class HavenoUtils {
         case XMR_STAGENET:
             return "5B11hTJdG2XDNwjdKGLRxwSLwDhkbGg7C7UEAZBxjE6FbCeRMjudrpNACmDNtWPiSnNfjDQf39QRjdtdgoL69txv81qc2Mc";
         case XMR_MAINNET:
-            throw new RuntimeException("Mainnet fee address not implemented");
+            return "8BjRRqGQgrG6H7SUqqm2ubNXPBpcvoE3f1mSXNszsgKfTXVsbf63TvRREkGUqwgV7JWHKtN5XP6W4bDgw1f5G86pFpAxaQG";
         default:
             throw new RuntimeException("Unhandled base currency network: " + Config.baseCurrencyNetwork());
         }
@@ -435,7 +435,7 @@ public class HavenoUtils {
         case XMR_STAGENET:
             return "577XbZ8yGfrWJM3aAoCpHVgDCm5higshGVJBb4ZNpTYARp8rLcCdcA1J8QgRfFWTzmJ8QgRfFWTzmJ8QgRfFWTzmCbXF9hd";
         case XMR_MAINNET:
-            return "46uVWiE1d4kWJM3aAoCpHVgDCm5higshGVJBb4ZNpTYARp8rLcCdcA1J8QgRfFWTzmJ8QgRfFWTzmJ8QgRfFWTzmCag5CXT";
+            return "83LoqtM5CRziDoDENAtzTJjnWBaYfz5VkjHD6f5McsfqPocbst2kJcRCYJE6cjBd7aHpTaNyoezLZfgFRNEjETdQUHuq1FM";
         default:
             throw new RuntimeException("Unhandled base currency network: " + Config.baseCurrencyNetwork());
         }

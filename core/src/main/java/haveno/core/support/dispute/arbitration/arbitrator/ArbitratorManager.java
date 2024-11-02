@@ -76,9 +76,19 @@ public class ArbitratorManager extends DisputeAgentManager<Arbitrator> {
                     "02d3beb1293ca2ca14e6d42ca8bd18089a62aac62fd6bb23923ee6ead46ac60fba",
                     "03fa0f38f27bdd324db6f933f7e57851dadf3b911e4db6b19dd0950492c4525a31",
                     "02a1a458df5acf4ab08fdca748e28f33a955a30854c8c1a831ee733dca7f0d2fcd",
-                    "0374dd70f3fa6e47ec5ab97932e1cec6233e98e6ae3129036b17118650c44fd3de");
+                    "0374dd70f3fa6e47ec5ab97932e1cec6233e98e6ae3129036b17118650c44fd3de"
+                );
         case XMR_MAINNET:
-            return List.of();
+            return List.of(
+                    "0259eb939d7ddd49fb5575e8c2b7dcff3ac9eee432b95d7a8ed05211c31c8f0260",
+                    "0250bd83f4ef502b3cf44497f8553a9021c43278d869d06310aa843260c4733b8c",
+                    "02acb5a62241f6eb2428aab090322bdc074ffe77bf656e8221f42f9ea1db34c8e6",
+                    "02d96f8239f44f5b45846585eb062453f0af514d4e94324ffe783e8bdc89705b6e",
+                    "03b1f75164b569227a38aa30d6711ffe702039c81a14d0fc8b87c08d2d1cd927ee",
+                    "0294d8ac9e16f5c6b918e24ac8fe2c903d758290ba080b6cfef35fe60852c7940f",
+                    "038e971d724bd4cfbba7e9d18d52d0cc377b30ac5aabe12298a62f85425dfcd5c6",
+                    "026e457342a0af072bb87eba22a89a5cd9a6af3abdfcfe11aeeb3718c4a1a34407"
+            );
         default:
             throw new RuntimeException("Unhandled base currency network: " + Config.baseCurrencyNetwork());
         }

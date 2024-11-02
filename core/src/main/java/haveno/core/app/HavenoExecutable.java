@@ -84,7 +84,7 @@ public abstract class HavenoExecutable implements GracefulShutDownHandler, Haven
 
     // TODO: regular expression is used to parse application name for the flatpak manifest, a more stable approach would be nice
     // Don't edit the next line unless you're only editing in between the quotes.
-    public static final String DEFAULT_APP_NAME = "Haveno";
+    public static final String DEFAULT_APP_NAME = "HAVENO_ALOHA";
 
     public static final int EXIT_SUCCESS = 0;
     public static final int EXIT_FAILURE = 1;
@@ -126,7 +126,7 @@ public abstract class HavenoExecutable implements GracefulShutDownHandler, Haven
             System.exit(EXIT_FAILURE);
         } catch (Throwable ex) {
             System.err.println("fault: An unexpected error occurred. " +
-                    "Please file a report at https://github.com/haveno-dex/haveno/issues");
+                    "Please file a report at https://github.com/The-Aloha-Project/haveno-aloha/issues");
             ex.printStackTrace(System.err);
             System.exit(EXIT_FAILURE);
         }
