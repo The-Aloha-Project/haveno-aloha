@@ -28,8 +28,8 @@ Haveno Aloha can be installed on Linux, macOS, and Windows by using a third part
 
 Haveno Aloha is a community-driven project. For it to be successful it's fundamental to have the support and help of the community. Join the community rooms on our Matrix server:
 
-- General discussions: **Haveno Aloha** ([#haveno:monero.social](https://matrix.to/#/#haveno:monero.social)) relayed on IRC/Libera (`#haveno`)
-- Development discussions: **Haveno Aloha Development** ([#haveno-dev:monero.social](https://matrix.to/#/#haveno-dev:monero.social)) relayed on IRC/Libera (`#haveno-dev`)
+- General discussions: **Haveno Aloha**: (Community areas coming soon)
+- Development discussions: **Haveno Aloha Development**: (Community areas coming soon)
 
 Website: [https://www.haveno-aloha.com](https://www.haveno-aloha.com/)
 
