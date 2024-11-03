@@ -19,10 +19,10 @@ USER haveno
 WORKDIR /home/haveno
 
 RUN set -ex && git clone https://github.com/The-Aloha-Project/haveno-aloha.git && \
-    cd haveno && \
+    cd haveno-aloha && \
     make skip-tests
 
-WORKDIR /home/haveno/haveno
+WORKDIR /home/haveno/haveno-aloha
 
 ENTRYPOINT [ "./haveno-seednode" ]
 
