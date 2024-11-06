@@ -87,8 +87,8 @@ public class HavenoUtils {
 
     // configure fees
     public static final boolean ARBITRATOR_ASSIGNS_TRADE_FEE_ADDRESS = false;
-    public static final double MAKER_FEE_PCT = 0.003; // 0.15%
-    public static final double TAKER_FEE_PCT = 0.001; // 0.75%
+    public static final double MAKER_FEE_PCT = 0.0001; // There must be a small fee for the transaction to complete 0.01%
+    public static final double TAKER_FEE_PCT = 0.0001; // There must be a small fee for the transaction to complete 0.01%
     public static final double PENALTY_FEE_PCT = 0.02; // 2%
 
     // other configuration
