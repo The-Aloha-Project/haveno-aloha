@@ -20,7 +20,7 @@ services:
       - "--useDevPrivilegeKeys=false"
       - "--nodePort=2001"
       - "--appName=haveno-XMR_MAINNET_Seed_2001"
-      - "--hiddenServiceAddress=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion"
+      - "--hiddenServiceAddress=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion" # First create the Tor hidden service in an external tor and point it to this service
       - "--seedNodes=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion:2001,dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion:2002,ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion:2003"
     restart: unless-stopped
 
@@ -43,7 +43,7 @@ services:
       - "--useDevPrivilegeKeys=false"
       - "--nodePort=2002"
       - "--appName=haveno-XMR_MAINNET_Seed_2002"
-      - "--hiddenServiceAddress=dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion"
+      - "--hiddenServiceAddress=dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion" # First create the Tor hidden service in an external tor and point it to this service
       - "--seedNodes=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion:2001,dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion:2002,ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion:2003"
     restart: unless-stopped
 
@@ -66,6 +66,6 @@ services:
       - "--useDevPrivilegeKeys=false"
       - "--nodePort=2003"
       - "--appName=haveno-XMR_MAINNET_Seed_2003"
-      - "--hiddenServiceAddress=ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion"
+      - "--hiddenServiceAddress=ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion" # First create the Tor hidden service in an external tor and point it to this service
       - "--seedNodes=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion:2001,dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion:2002,ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion:2003"
     restart: unless-stopped
