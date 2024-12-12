@@ -1,0 +1,71 @@
+version: '3'
+
+services:
+  haveno-seednode_2001:
+    image: haveno-seednode
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:2001:2001"
+    environment:
+      - BASE_CURRENCY_NETWORK=XMR_MAINNET
+      - USE_LOCALHOST_FOR_P2P=false
+      - USE_DEV_PRIVILEGE_KEYS=false
+      - NODE_PORT=2001
+      - APP_NAME=haveno-XMR_MAINNET_Seed_2001
+    entrypoint: ["./haveno-seednode"]
+    command:
+      - "--baseCurrencyNetwork=XMR_MAINNET"
+      - "--useLocalhostForP2P=false"
+      - "--useDevPrivilegeKeys=false"
+      - "--nodePort=2001"
+      - "--appName=haveno-XMR_MAINNET_Seed_2001"
+      - "--hiddenServiceAddress=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion"
+      - "--seedNodes=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion:2001,dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion:2002,ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion:2003"
+    restart: unless-stopped
+
+  haveno-seednode_2002:
+    image: haveno-seednode
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:2002:2002"
+    environment:
+      - BASE_CURRENCY_NETWORK=XMR_MAINNET
+      - USE_LOCALHOST_FOR_P2P=false
+      - USE_DEV_PRIVILEGE_KEYS=false
+      - NODE_PORT=2002
+      - APP_NAME=haveno-XMR_MAINNET_Seed_2002
+    entrypoint: ["./haveno-seednode"]
+    command:
+      - "--baseCurrencyNetwork=XMR_MAINNET"
+      - "--useLocalhostForP2P=false"
+      - "--useDevPrivilegeKeys=false"
+      - "--nodePort=2002"
+      - "--appName=haveno-XMR_MAINNET_Seed_2002"
+      - "--hiddenServiceAddress=dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion"
+      - "--seedNodes=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion:2001,dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion:2002,ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion:2003"
+    restart: unless-stopped
+
+  haveno-seednode_2003:
+    image: haveno-seednode
+    build:
+      context: .
+    ports:
+      - "127.0.0.1:2003:2003"
+    environment:
+      - BASE_CURRENCY_NETWORK=XMR_MAINNET
+      - USE_LOCALHOST_FOR_P2P=false
+      - USE_DEV_PRIVILEGE_KEYS=false
+      - NODE_PORT=2003
+      - APP_NAME=haveno-XMR_MAINNET_Seed_2003
+    entrypoint: ["./haveno-seednode"]
+    command:
+      - "--baseCurrencyNetwork=XMR_MAINNET"
+      - "--useLocalhostForP2P=false"
+      - "--useDevPrivilegeKeys=false"
+      - "--nodePort=2003"
+      - "--appName=haveno-XMR_MAINNET_Seed_2003"
+      - "--hiddenServiceAddress=ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion"
+      - "--seedNodes=5i6blbmuflq4s4im6zby26a7g22oef6kyp7vbwyru6oq5e36akzo3ayd.onion:2001,dx4ktxyiemjc354imehuaswbhqlidhy62b4ifzigk5p2rb37lxqbveqd.onion:2002,ajbqx4clnjlr7lmzoftuvpvmqafdiilidsgocvokx6bqj3okk56ccfqd.onion:2003"
+    restart: unless-stopped
