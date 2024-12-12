@@ -268,7 +268,7 @@ public abstract class MutableOfferViewModel<M extends MutableOfferDataModel> ext
                     dataModel.getTradeCurrencyCode()));
         }
         volumePromptLabel.bind(createStringBinding(
-                () -> Res.get("createOffer.volume.prompt", dataModel.getTradeCurrencyCode().get()),
+                () -> Res.get("createOffer.volume.prompt", CurrencyUtil.getCurrencyCodeBase(dataModel.getTradeCurrencyCode().get())),
                 dataModel.getTradeCurrencyCode()));
 
         totalToPay.bind(createStringBinding(() -> HavenoUtils.formatXmr(dataModel.totalToPayAsProperty().get(), true),
@@ -613,7 +613,7 @@ public abstract class MutableOfferViewModel<M extends MutableOfferDataModel> ext
 
         dataModel.onPlaceOffer(offer, transaction -> {
             resultHandler.run();
-            placeOfferCompleted.set(true);
+            if (!createOfferCanceled) placeOfferCompleted.set(true);
             errorMessage.set(null);
         }, errMessage -> {
             createOfferRequested = false;

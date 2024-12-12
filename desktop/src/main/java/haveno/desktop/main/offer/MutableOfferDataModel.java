@@ -20,6 +20,8 @@ package haveno.desktop.main.offer;
 import static com.google.common.base.Preconditions.checkNotNull;
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
+
+import haveno.common.UserThread;
 import haveno.common.handlers.ErrorMessageHandler;
 import haveno.common.util.MathUtils;
 import haveno.common.util.Utilities;
@@ -57,7 +59,6 @@ import java.util.Comparator;
 import static java.util.Comparator.comparing;
 import java.util.Date;
 import java.util.HashSet;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.Set;
 import java.util.function.Predicate;
@@ -177,7 +178,7 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
         if (isTabSelected)
             priceFeedService.setCurrencyCode(tradeCurrencyCode.get());
 
-        updateBalance();
+        updateBalances();
     }
 
     @Override
@@ -206,7 +207,7 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
         xmrBalanceListener = new XmrBalanceListener(getAddressEntry().getSubaddressIndex()) {
             @Override
             public void onBalanceChanged(BigInteger balance) {
-                updateBalance();
+                updateBalances();
             }
         };
 
@@ -247,7 +248,7 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
 
         calculateVolume();
         calculateTotalToPay();
-        updateBalance();
+        updateBalances();
         setSuggestedSecurityDeposit(getPaymentAccount());
 
         return true;
@@ -257,10 +258,10 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
     private Optional<PaymentAccount> getAnyPaymentAccount() {
         if (CurrencyUtil.isFiatCurrency(tradeCurrency.getCode())) {
             return paymentAccounts.stream().filter(paymentAccount1 -> paymentAccount1.isFiat()).findAny();
+        } else if (CurrencyUtil.isCryptoCurrency(tradeCurrency.getCode())) {
+            return paymentAccounts.stream().filter(paymentAccount1 -> paymentAccount1.isCryptoCurrency()).findAny();
         } else {
-            return paymentAccounts.stream().filter(paymentAccount1 -> !paymentAccount1.isFiat() &&
-                    paymentAccount1.getTradeCurrency().isPresent() &&
-                    !Objects.equals(paymentAccount1.getTradeCurrency().get().getCode(), GUIUtil.TOP_CRYPTO.getCode())).findAny();
+            return paymentAccounts.stream().filter(paymentAccount1 -> paymentAccount1.getTradeCurrency().isPresent()).findAny();
         }
     }
 
@@ -272,6 +273,19 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
         this.isTabSelected = isSelected;
         if (isTabSelected)
             priceFeedService.setCurrencyCode(tradeCurrencyCode.get());
+    }
+
+    protected void updateBalances() {
+        super.updateBalances();
+
+        // update remaining balance
+        UserThread.await(() -> {
+            missingCoin.set(offerUtil.getBalanceShortage(totalToPay.get(), balance.get()));
+            isXmrWalletFunded.set(offerUtil.isBalanceSufficient(totalToPay.get(), balance.get()));
+            if (totalToPay.get() != null && isXmrWalletFunded.get() && !showWalletFundedNotification.get()) {
+                showWalletFundedNotification.set(true);
+            }
+        });
     }
 
     ///////////////////////////////////////////////////////////////////////////////////////////
@@ -394,11 +408,7 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
 
     void fundFromSavingsWallet() {
         this.useSavingsWallet = true;
-        updateBalance();
-        if (!isXmrWalletFunded.get()) {
-            this.useSavingsWallet = false;
-            updateBalance();
-        }
+        updateBalances();
     }
 
     protected void setMarketPriceMarginPct(double marketPriceMargin) {
@@ -493,7 +503,7 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
             }
         }
 
-        updateBalance();
+        updateBalances();
     }
 
     void calculateMinVolume() {
@@ -546,7 +556,7 @@ public abstract class MutableOfferDataModel extends OfferDataModel {
             BigInteger feeAndSecDeposit = getSecurityDeposit().add(makerFee);
             BigInteger total = isBuyOffer() ? feeAndSecDeposit : feeAndSecDeposit.add(amount.get());
             totalToPay.set(total);
-            updateBalance();
+            updateBalances();
         }
     }
 
